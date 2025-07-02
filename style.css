@@ -65,7 +65,6 @@ body {
   width: 10px;
   height: 30px;
 }
-
 .player__controls {
   display: flex;
   position: absolute;
@@ -74,7 +73,8 @@ body {
   transform: translateY(100%) translateY(-5px);
   transition: all 0.3s;
   flex-wrap: wrap;
-  background: rgba(0, 0, 0, 0.1);
+  background-color: #7a419b;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .player:hover .player__controls {

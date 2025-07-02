@@ -50,7 +50,11 @@ function HandelProgress() {
 
 function fullscreenReq() {
   if (!fullscr) {
-    video.requestFullscreen();
+    player.requestFullscreen();
+    fullscr = true;
+  } else {
+    video.exitFullscreen();
+    fullscr = false;
   }
 }
 
