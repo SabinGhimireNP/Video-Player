@@ -7,12 +7,15 @@ const progressBar = player.querySelector(".progress__filled");
 const toggle = document.querySelector(".toggle");
 const skipButtons = player.querySelectorAll("[data-skip]");
 const ranges = player.querySelectorAll(".player__slider");
+const fullscreen = document.querySelector(".fullscreen");
 
 let mouseDown = false;
+let fullscr = false;
 
 //Functions
 
 function TogglePlay() {
+  console.log("pressed");
   const method = video.paused ? "play" : "pause";
   video[method]();
   UpdateButton();
@@ -42,7 +45,13 @@ function scrub(e) {
 function HandelProgress() {
   const percent = (video.currentTime / video.duration) * 100;
   progressBar.style.flexBasis = `${percent}%`;
-  console.log(progressBar.style.flexBasis);
+  // console.log(progressBar.style.flexBasis);
+}
+
+function fullscreenReq() {
+  if (!fullscr) {
+    video.requestFullscreen();
+  }
 }
 
 // Event Listener
@@ -59,3 +68,4 @@ progress.addEventListener("mouseup", () => (mouseDown = false));
 toggle.addEventListener("click", TogglePlay);
 skipButtons.forEach((e) => e.addEventListener("click", Skip));
 ranges.forEach((e) => e.addEventListener("change", RangeUpdate));
+fullscreen.addEventListener("click", fullscreenReq);
