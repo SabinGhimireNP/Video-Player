@@ -45,7 +45,8 @@ body {
 }
 
 .player__button,
-.fullscreen {
+.fullscreen,
+.muted {
   background: none;
   border: 0;
   line-height: 1;
