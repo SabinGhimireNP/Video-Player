@@ -8,9 +8,18 @@ const toggle = document.querySelector(".toggle");
 const skipButtons = player.querySelectorAll("[data-skip]");
 const ranges = player.querySelectorAll(".player__slider");
 const fullscreen = document.querySelector(".fullscreen");
+const mute = document.querySelector(".muted");
 
 let mouseDown = false;
 let fullscr = false;
+
+window.onload = () => {
+  video.muted = true;
+  video.play().catch((e) => {
+    // Autoplay was prevented
+    console.log("Autoplay blocked:", e);
+  });
+};
 
 //Functions
 
@@ -48,6 +57,16 @@ function HandelProgress() {
   // console.log(progressBar.style.flexBasis);
 }
 
+function ToggleMute() {
+  if (video.muted) {
+    video.muted = false;
+    mute.textContent = "🔊";
+  } else {
+    video.muted = true;
+    mute.textContent = "🔇";
+  }
+}
+
 function fullscreenReq() {
   if (!fullscr) {
     player.requestFullscreen();
@@ -63,6 +82,7 @@ video.addEventListener("click", TogglePlay);
 video.addEventListener("timeupdate", HandelProgress);
 video.addEventListener("play", UpdateButton);
 video.addEventListener("pause", UpdateButton);
+mute.addEventListener("click", ToggleMute);
 
 progress.addEventListener("click", scrub);
 progress.addEventListener("mousemove", (e) => mouseDown && scrub(e));

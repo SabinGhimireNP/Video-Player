@@ -12,13 +12,19 @@
   </head>
   <body>
     <div class="player">
-      <video class="player__video viewer" src="./video.mp4" autoplay></video>
+      <video
+        class="player__video viewer"
+        src="./video.mp4"
+        muted
+        autoplay
+      ></video>
 
       <div class="player__controls">
         <div class="progress">
           <div class="progress__filled"></div>
         </div>
         <button class="player__button toggle" title="Toggle Play">❚❚</button>
+        <button class="muted" title="Toggle Mute">🔇</button>
         <input
           type="range"
           name="volume"
