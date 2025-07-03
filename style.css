@@ -44,9 +44,7 @@ body {
   width: 100%;
 }
 
-.player__button,
-.fullscreen,
-.muted {
+.player__button, .fullscreen, .muted {
   background: none;
   border: 0;
   line-height: 1;
