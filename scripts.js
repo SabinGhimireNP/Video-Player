@@ -60,10 +60,10 @@ function HandelProgress() {
 function ToggleMute() {
   if (video.muted) {
     video.muted = false;
-    mute.textContent = "🔊";
+    mute.textContent = "🔊"; //playing
   } else {
     video.muted = true;
-    mute.textContent = "🔇";
+    mute.textContent = "🔇"; // muted
   }
 }
 
